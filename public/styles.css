@@ -1,0 +1,27 @@
+.backg-img{
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+
+}
+
+/* temporary rules below */
+.left{
+    /* border-radius: 15px; */
+    /* margin: 10px; */
+    color:rgba(255, 255, 255, 0.699);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    max-width: 550px;
+    height : 100vh;
+    overflow-y : scroll;
+    background-color: rgba(0, 0, 0, 0.185);  
+    backdrop-filter: blur(7px);
+    padding: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.199);
+}
+
+.left::-webkit-scrollbar { width: 0px !important }
