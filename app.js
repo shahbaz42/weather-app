@@ -1,17 +1,22 @@
 const express = require("express");  //express
 const https = require("https");      //https for making requets to api
+const ejs = require("ejs");          // for ejs templating
 const bodyParser = require("body-parser");  //for parsing requests recieved via app.post
 
 require("dotenv").config() ;                     // This is for storing API Keys in a separate environment file .env  
-
-console.log(process.env);              
+             
 
 app = express();
-
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));  //linking bodyparser with express
+app.set("view engine", "ejs");
 
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/index.html");  //sending html file for rendering
+});
+
+app.get("/home", function(req, res){
+  res.render("home");
 });
 
 app.post("/", function(req, res){
@@ -37,6 +42,8 @@ app.post("/", function(req, res){
     });
   });
 });
+
+
 
 app.listen(8000, function(){
   console.log("Server is running on port 8000");
