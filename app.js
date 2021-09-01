@@ -38,10 +38,7 @@ app.post("/", function(req, res){
         const description = weatherData.weather[0].description;
         const weatherIcon = weatherData.weather[0].icon;
         const weatherIconUrl = "http://openweathermap.org/img/wn/"+ weatherIcon +"@2x.png" ;
-        res.write("<h1> The weather in "+ cityNameRec +" is " + temp + " degrees Celcius. </h1>");  // res.write() can wrap all things we want to send then calling res,send will send it.
-        res.write("<h3> The weather feels like " + description + " </h3 >");
-        res.write("<img src='" +weatherIconUrl+ "  '></img>");
-        res.send();                                                                                ////Sending data to our client !!! Remember app.get can have single res.send
+        res.render("home", weatherData);                                                                              ////Sending data to our client !!! Remember app.get can have single res.send
     });
   });
 });
