@@ -1,16 +1,126 @@
-<%- include("partials/header")  -%> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- name %></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background" style="background-image: url('<%- weather[0].main %>.jpg')">
+      <div class="left-section">
+        <h1 class="temp"><%- Math.floor(main.temp) %>°</h1>
+        <div class="city-time">
+          <h2 class="city"><%- name %></h2>
+          <h4 class="date-time"><%- date %> </h4>
+        </div>
+        <div class="weather">
+          <img
+            class="weather-icon"
+            src="http://openweathermap.org/img/wn/<%- weather[0].icon %>@2x.png"
+          />
+          <h4 class="feels-like"><%- weather[0].main %></h4>
+        </div>
+      </div>
+      <div class="right-section">
+        <div class="search">
+          <form action="/" method="post" autocomplete="off">
+            <input
+              class="search-bar"
+              id="cityName"
+              type="text"
+              name="cityName"
+              placeholder="Enter city name.."
+            />
+            <button class="search-button" type="submit">Go</button>
+          </form>
+        </div>
+        <br /><br /><br />
+        <div class="right-section-title">
+          <img
+            class="weather-icon2"
+            src="http://openweathermap.org/img/wn/<%- weather[0].icon %>@2x.png"
+          />
+          <br /><br />
+          <h3>
+            The weather in <%- name %> feels like <%- weather[0].description %>.
+          </h3>
+        </div>
 
-<div class="backg-img" style="background-image: url('<%- weather[0].main %>.jpg');" >
-    <div class="left">
-        
-        <br>
-        <h1> The weather in <%- name %>  is <%- main.temp %>  degrees Celcius. </h1>
-        <h3> The weather feels like <%- weather[0].description %>  </h3 >
-        <img src='http://openweathermap.org/img/wn/<%- weather[0].icon %>@2x.png'></img>
-                                                   
+        <br /><br /><br /><br />
+        <div class="weather-details">
+          <h3>Weather Details</h3>
+          <br />
+          <div class="my-row">
+            <h5>Temperature</h5>
+            <h5><%- Math.floor(main.temp) %>°</h5>
+          </div>
+          <div class="my-row">
+            <h5>Feels Like</h5>
+            <h5><%- main.feels_like %>°</h5>
+          </div>
+          <div class="my-row">
+            <h5>Temperature min</h5>
+            <h5><%- main.temp_min %>°</h5>
+          </div>
+          <div class="my-row">
+            <h5>Temperature max</h5>
+            <h5><%- main.temp_max %>°</h5>
+          </div>
+          <div class="my-row">
+            <h5>Clouds</h5>
+            <h5><%- clouds.all %> %</h5>
+          </div>
+          <div class="my-row">
+            <h5>Pressure</h5>
+            <h5><%- main.pressure %></h5>
+          </div>
+          <div class="my-row">
+            <h5>Humidity</h5>
+            <h5><%- main.humidity %></h5>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="weather-details">
+          <h3>Sunrise Sunset</h3>
+          <br/>
+          <div class="my-row">
+            <h5>Sunrise</h5>
+            <h5>5:30am</h5>
+          </div>
+          <div class="my-row">
+            <h5>Sunset</h5>
+            <h5>6:30pm</h5>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="weather-details">
+          <h3>Wind</h3>
+          <br />
+          <div class="my-row">
+            <h5>Wind speed</h5>
+            <h5><%- wind.speed %>  km/hr</h5>
+          </div>
+          <div class="my-row">
+            <h5>Wind direction</h5>
+            <h5><%- wind.deg %> °</h5>
+          </div>
+        </div>
+        <br /><br /><br /><br />
+        <div class="right-section-title">
+          <p>Background images taken from Unsplash</p>
+          <p>Made with ❤️ by Shahbaz</p>
+        </div>
+      </div>
     </div>
-
-</div>
-
-
-<%- include("partials/footer")  -%> 
+  </body>
+</html>
