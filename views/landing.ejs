@@ -100,8 +100,9 @@
     <script>
       axios.get("https://api.ipify.org/?format=json").then(function (response) {
         axios
-          .get("http://ipwhois.app/json/" + response.data.ip)
+          .get("https://ipwhois.app/json/" + response.data.ip)
           .then(function (response) {
+            console.log(response.data.city);
             $("#cityName")[0].value = response.data.city;
             $("#searchCity").submit();
           });
