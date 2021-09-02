@@ -12,14 +12,21 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/86113b2a69.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="background" style="background-image: url('<%- weather[0].main %>.jpg')">
+    <div
+      class="background"
+      style="background-image: url('<%- weather[0].main %>.jpg')"
+    >
       <div class="left-section">
         <h1 class="temp"><%- Math.floor(main.temp) %>°</h1>
         <div class="city-time">
           <h2 class="city"><%- name %></h2>
-          <h4 class="date-time"><%- date %> </h4>
+          <h4 class="date-time"><%- date %></h4>
         </div>
         <div class="weather">
           <img
@@ -59,31 +66,33 @@
           <h3>Weather Details</h3>
           <br />
           <div class="my-row">
-            <h5>Temperature</h5>
+            <h5>
+              <i class="fas fa-thermometer-three-quarters"></i>Temperature
+            </h5>
             <h5><%- Math.floor(main.temp) %>°</h5>
           </div>
           <div class="my-row">
-            <h5>Feels Like</h5>
+            <h5><i class="fas fa-snowflake"></i>Feels Like</h5>
             <h5><%- main.feels_like %>°</h5>
           </div>
           <div class="my-row">
-            <h5>Temperature min</h5>
+            <h5><i class="fas fa-temperature-low"></i>Temperature min</h5>
             <h5><%- main.temp_min %>°</h5>
           </div>
           <div class="my-row">
-            <h5>Temperature max</h5>
+            <h5><i class="fas fa-temperature-high"></i>Temperature max</h5>
             <h5><%- main.temp_max %>°</h5>
           </div>
           <div class="my-row">
-            <h5>Clouds</h5>
+            <h5><i class="fas fa-cloud"></i>Clouds</h5>
             <h5><%- clouds.all %> %</h5>
           </div>
           <div class="my-row">
-            <h5>Pressure</h5>
+            <h5><i class="fas fa-tachometer-alt"></i>Pressure</h5>
             <h5><%- main.pressure %></h5>
           </div>
           <div class="my-row">
-            <h5>Humidity</h5>
+            <h5><i class="fas fa-tint"></i>Humidity</h5>
             <h5><%- main.humidity %></h5>
           </div>
         </div>
@@ -91,13 +100,13 @@
         <br />
         <div class="weather-details">
           <h3>Sunrise Sunset</h3>
-          <br/>
+          <br />
           <div class="my-row">
-            <h5>Sunrise</h5>
+            <h5><i class="fas fa-cloud-sun"></i>Sunrise</h5>
             <h5>5:30am</h5>
           </div>
           <div class="my-row">
-            <h5>Sunset</h5>
+            <h5><i class="fas fa-cloud-moon"></i>Sunset</h5>
             <h5>6:30pm</h5>
           </div>
         </div>
@@ -107,17 +116,17 @@
           <h3>Wind</h3>
           <br />
           <div class="my-row">
-            <h5>Wind speed</h5>
-            <h5><%- wind.speed %>  km/hr</h5>
+            <h5><i class="fas fa-wind"></i>Wind speed</h5>
+            <h5><%- wind.speed %> km/hr</h5>
           </div>
           <div class="my-row">
-            <h5>Wind direction</h5>
+            <h5><i class="fas fa-compass"></i>Wind direction</h5>
             <h5><%- wind.deg %> °</h5>
           </div>
         </div>
         <br /><br /><br /><br />
         <div class="right-section-title">
-          <p>Background images taken from Unsplash</p>
+          <p>Background images from Unsplash</p>
           <p>Made with ❤️ by Shahbaz</p>
         </div>
       </div>
