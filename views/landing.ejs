@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      "
+    >
+      <div class="loadingio-spinner-ripple-wwst4ix0rcd">
+        <div class="ldio-cd18uis0kbi">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <p style="font-family: Helvetica, Arial, sans-serif; color: #0055a594">
+        Locating
+      </p>
+    </div>
+
+    <style type="text/css">
+      @keyframes ldio-cd18uis0kbi {
+        0% {
+          top: 102.72px;
+          left: 102.72px;
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
+        100% {
+          top: 49.220000000000006px;
+          left: 49.220000000000006px;
+          width: 107px;
+          height: 107px;
+          opacity: 0;
+        }
+      }
+      .ldio-cd18uis0kbi div {
+        position: absolute;
+        border-width: 4.28px;
+        border-style: solid;
+        opacity: 1;
+        border-radius: 50%;
+        animation: ldio-cd18uis0kbi 1.923076923076923s
+          cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      .ldio-cd18uis0kbi div:nth-child(1) {
+        border-color: #0055a5;
+        animation-delay: 0s;
+      }
+      .ldio-cd18uis0kbi div:nth-child(2) {
+        border-color: #45aee7;
+        animation-delay: -0.9615384615384615s;
+      }
+      .loadingio-spinner-ripple-wwst4ix0rcd {
+        width: 214px;
+        height: 214px;
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+      }
+      .ldio-cd18uis0kbi {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateZ(0) scale(1);
+        backface-visibility: hidden;
+        transform-origin: 0 0; /* see note above */
+      }
+      .ldio-cd18uis0kbi div {
+        box-sizing: content-box;
+      }
+    </style>
+
+    <form id="searchCity" action="/display" method="post" autocomplete="off">
+      <input
+        class="search-bar"
+        id="cityName"
+        type="text"
+        name="cityName"
+        placeholder="Enter city name.."
+        style="display: none"
+      />
+      <button class="search-button" type="submit" style="display: none">
+        Go
+      </button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      axios.get("https://api.ipify.org/?format=json").then(function (response) {
+        axios
+          .get("http://ipwhois.app/json/" + response.data.ip)
+          .then(function (response) {
+            $("#cityName")[0].value = response.data.city;
+            $("#searchCity").submit();
+          });
+      });
+    </script>
+  </body>
+</html>

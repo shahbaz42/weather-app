@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));  //linking bodyparser with express
 app.set("view engine", "ejs");
 
-app.get("/", function(req, res){
+app.get("/display", function(req, res){
   const cityName = "Delhi";     
   const appId = process.env.APP_ID;
   const units = "metric";
@@ -29,7 +29,7 @@ app.get("/", function(req, res){
   });
 });
 
-app.post("/", function(req, res){
+app.post("/display", function(req, res){
   const cityName = req.body.cityName;         //recieving cityName from form
   const appId = process.env.APP_ID;
   const units = "metric";
@@ -47,6 +47,10 @@ app.post("/", function(req, res){
     });
   });
 });
+
+app.get("/", function(req, res){
+  res.render("landing");
+})
 
 
 
