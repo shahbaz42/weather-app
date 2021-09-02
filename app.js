@@ -19,7 +19,7 @@ app.get("/", function(req, res){
   https.get(url, function(response){
     response.on("data", function(data){       //returns data in hexa-desimal format
         const weatherData = JSON.parse(data);   // to parse data in text format  //JSON.stringify(weatherData);     //This does opposite of JSON.parse this removes spaces and stringify weatherData
-        weatherData['date']=dateProvider.getDate();
+        weatherData['date']=dateProvider.getDate(weatherData);
         if (weatherData.cod == 200){
           res.render("home", weatherData);  
         }else{
@@ -38,7 +38,7 @@ app.post("/", function(req, res){
   https.get(url, function(response){
     response.on("data", function(data){       //returns data in hexa-desimal format
         const weatherData = JSON.parse(data);   // to parse data in text format  //JSON.stringify(weatherData);     //This does opposite of JSON.parse this removes spaces and stringify weatherData
-        weatherData['date']=dateProvider.getDate();
+        weatherData['date']=dateProvider.getDate(weatherData);
         if (weatherData.cod == 200){
           res.render("home", weatherData);  
         }else{
