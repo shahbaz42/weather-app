@@ -1,12 +1,10 @@
-
-const mySecret = process.env['APP_ID']
-
 const express = require("express");  //express
 const https = require("https");      //https for making requets to api
 const ejs = require("ejs");          // for ejs templating
 const bodyParser = require("body-parser");  //for parsing requests recieved via app.post
 const dateProvider = require(__dirname + "/date.js")   // fore getting date in string format
 require("dotenv").config() ;                     // This is for storing API Keys in a separate environment file .env  
+const mySecret = process.env['APP_ID']
 
 app = express();
 app.use(express.static('public'));
@@ -42,6 +40,6 @@ app.get("/", function(req, res){
 
 
 
-app.listen(8000, function(){
-  console.log("Server is running on port 8000");
+app.listen( process.env.PORT || 8000, function(){
+  console.log(`Server is running on port ${process.env.PORT || 8000}`);
 });
